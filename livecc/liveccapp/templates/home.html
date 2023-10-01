@@ -1,0 +1,133 @@
+<html>
+<head>
+<title> Live CC app by yash </title>
+<style>
+	h1 {
+		font-size :60px;
+		font-family:system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+		background-color: #0078d0;
+		width:65%;
+		border-radius: 56px;
+		color:white;
+		font-weight: 600;
+
+	}
+	h2 {
+		font-size :60px;
+		font-family:system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+		color:white;
+
+	}
+	body{
+		background-color:#0c0947;
+	}
+	input[type=number] {	
+		border: 6px solid #000;
+                border-radius: 5px;
+                height: 70px;
+                line-height: normal;
+                color: #282828;
+                display: block;
+                width: 50%;
+                box-sizing: border-box;
+                user-select: auto;
+                font-size: 50px;
+                padding: 0 6px;
+                padding-left: 12px;
+                :focus{
+                    border: 5px solid #5551ff;
+		 box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+                }
+	}
+	input[type=submit] {
+		background-color: #0078d0;
+		border: 0;
+		border-radius: 56px;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+  		font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+		font-size: 50px;
+		font-weight: 600;
+		outline: 0;
+		padding: 16px 21px;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		transition: all .3s;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		}
+
+	input[type=submit]:before {
+		background-color: initial;
+		background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+		border-radius: 125px;
+		content: "";
+		height: 50%;
+		left: 4%;
+		opacity: .5;
+		position: absolute;
+		top: 0;
+		transition: all .3s;
+		width: 92%;
+		}
+
+	input[type=submit]:hover {
+		box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+		transform: scale(1.05);
+		}
+
+	@media (min-width: 768px) {
+		input[type=submit] {
+			padding: 16px 48px;
+			}
+		}
+
+
+
+	}
+                
+                
+</style>
+<script>
+function check()
+{
+	let num = document.getElementById("amt")
+	let msg = document.getElementById("msg")
+
+	if (num.value == "")
+	{
+		alert("amt is empty");
+		msg.innerHTML="";
+		num.focus();
+		return false;
+	
+	}
+	let n = parseFloat(num.value);
+	if (n < 0)
+	{
+		alert("amt shuld be more than 0");
+		msg.innerHTML="";
+		num.focus();
+		return false;
+	
+	}
+	return true;
+}
+//
+</script>
+</head>
+<body>
+<center>
+<h1>Russian Ruble to Rupees Converter </h1>
+<form onsubmit= "return check()">
+<input type="number" step=0.01  placeholder="enter amt in &#x20bd " id="amt" name="amt" required>
+<br><br>
+<input type="submit"  value="Convert into &#8377"/>
+</form>
+<h2 id="msg">{{ msg }}  </h2>
+</center>
+</body>
+</html>
